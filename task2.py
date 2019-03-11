@@ -23,13 +23,19 @@
 
 
 def valid_mobile_number(phone_number):
+    length_test = len(phone_number) == 9 or len(phone_number) == 10
+    stars_with_test = phone_number.startswith("06")
+    third_char_test = phone_number[2] == "3" or phone_number[2] == "6" or phone_number[2] == "7" or phone_number[2] == "8" or phone_number[2] == "9"
+    all_digits_test = phone_number.isdigit()
 
-
-
+    if (length_test and stars_with_test and third_char_test and all_digits_test):
+        return True
+    else:
+        return False
 
 def main():
 
-    number_to_test = "0699919991"
+    number_to_test = "067458884"
     if valid_mobile_number(number_to_test):
         print("Phone number is valid in Montenegro!")
     else:
