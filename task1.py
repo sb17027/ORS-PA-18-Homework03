@@ -14,16 +14,20 @@
 ===================================================
 """
 
-
+import numbers
 def sum_digits(number):
-
-
-
+    if(not isinstance(number,numbers.Number)):
+        return -1
+    number = abs(number)
+    s = 0
+    while number:
+        s += number % 10
+        number = number // 10
+    return s
 
 def main():
 
-    int_number = 1234
+    int_number = 12
     digit_sum = sum_digits(int_number)
     print("Sum of digits for given numbers is: ", digit_sum)
-
 main()
